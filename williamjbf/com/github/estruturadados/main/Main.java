@@ -1,5 +1,6 @@
 package williamjbf.com.github.estruturadados.main;
 
+import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
 import williamjbf.com.github.estruturadados.listasligadas.ListaLigada;
 import williamjbf.com.github.estruturadados.modelos.Pessoa;
 import williamjbf.com.github.estruturadados.vetores.Vetor;
@@ -16,6 +17,8 @@ public class Main {
         System.out.println("1- Gerencia de memoria");
         System.out.println("2- Vetores");
         System.out.println("3- Lista ligada");
+        System.out.println("4- Lista duplamente ligada");
+
         try {
             opcao = scan.nextInt();
         } catch (Exception e) {
@@ -26,6 +29,7 @@ public class Main {
             case 1 -> fazerGerenciamentoMemoria();
             case 2 -> fazerVetor();
             case 3 -> fazerListaLigada();
+            case 4 -> fazerListaDuplamenteLigada();
         }
 
         scan.close();
@@ -84,6 +88,27 @@ public class Main {
 
     private static void fazerListaLigada() {
         ListaLigada<Pessoa> listaPessoas = new ListaLigada<>();
+        listaPessoas.inserir(new Pessoa(1, "Rafael"));
+        listaPessoas.inserir(new Pessoa(2, "Kauanny"));
+        listaPessoas.inserir(new Pessoa(3, "William"));
+        System.out.println(listaPessoas);
+        listaPessoas.inserirEm(1, new Pessoa(4, "Milany"));
+        listaPessoas.inseirPrimeiro(new Pessoa(5, "Kelly"));
+        listaPessoas.inseirUltimo(new Pessoa(6, "Jeff"));
+        System.out.println(listaPessoas);
+        System.out.println(listaPessoas.recuperar(1));
+        System.out.println(listaPessoas.indice(new Pessoa(1,"Rafael")));
+        System.out.println(listaPessoas.contem(new Pessoa(1,"Rafael")));
+        listaPessoas.remover(1);
+        listaPessoas.remover(new Pessoa(5, "Kelly"));
+        System.out.println(listaPessoas);
+        for(int i =0; i< listaPessoas.tamanho();i++){
+            System.out.println(listaPessoas.recuperar(i));
+        }
+    }
+
+    private static void fazerListaDuplamenteLigada() {
+        ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<>();
         listaPessoas.inserir(new Pessoa(1, "Rafael"));
         listaPessoas.inserir(new Pessoa(2, "Kauanny"));
         listaPessoas.inserir(new Pessoa(3, "William"));
