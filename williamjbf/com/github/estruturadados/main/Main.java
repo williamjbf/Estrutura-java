@@ -3,6 +3,7 @@ package williamjbf.com.github.estruturadados.main;
 import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
 import williamjbf.com.github.estruturadados.listasligadas.ListaLigada;
 import williamjbf.com.github.estruturadados.modelos.Pessoa;
+import williamjbf.com.github.estruturadados.pilhas.Pilha;
 import williamjbf.com.github.estruturadados.vetores.Vetor;
 
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class Main {
         System.out.println("2- Vetores");
         System.out.println("3- Lista ligada");
         System.out.println("4- Lista duplamente ligada");
+        System.out.println("5- Pilha");
 
         try {
             opcao = scan.nextInt();
@@ -30,6 +32,7 @@ public class Main {
             case 2 -> fazerVetor();
             case 3 -> fazerListaLigada();
             case 4 -> fazerListaDuplamenteLigada();
+            case 5 -> fazerPilha();
         }
 
         scan.close();
@@ -126,5 +129,14 @@ public class Main {
         for(int i =0; i< listaPessoas.tamanho();i++){
             System.out.println(listaPessoas.recuperar(i));
         }
+    }
+
+    public static void fazerPilha(){
+        Pilha<Pessoa> pilhaPessoas = new Pilha<>();
+        System.out.println(pilhaPessoas.estaVazia());
+        pilhaPessoas.empilhar(new Pessoa(1, "Rafael"));
+        pilhaPessoas.empilhar(new Pessoa(2, "Kauanny"));
+        pilhaPessoas.empilhar(new Pessoa(3, "William"));
+        System.out.println(pilhaPessoas.desempilhar().toString());
     }
 }
