@@ -1,5 +1,6 @@
 package williamjbf.com.github.estruturadados.main;
 
+import williamjbf.com.github.estruturadados.filas.Fila;
 import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
 import williamjbf.com.github.estruturadados.listasligadas.ListaLigada;
 import williamjbf.com.github.estruturadados.modelos.Pessoa;
@@ -19,7 +20,8 @@ public class Main {
         System.out.println("2- Vetores");
         System.out.println("3- Lista ligada");
         System.out.println("4- Lista duplamente ligada");
-        System.out.println("5- Pilha");
+        System.out.println("5- Pilhas");
+        System.out.println("6- Filas");
 
         try {
             opcao = scan.nextInt();
@@ -33,6 +35,7 @@ public class Main {
             case 3 -> fazerListaLigada();
             case 4 -> fazerListaDuplamenteLigada();
             case 5 -> fazerPilha();
+            case 6 -> fazerFila();
         }
 
         scan.close();
@@ -139,4 +142,14 @@ public class Main {
         pilhaPessoas.empilhar(new Pessoa(3, "William"));
         System.out.println(pilhaPessoas.desempilhar().toString());
     }
+
+    public static void fazerFila(){
+        Fila<Pessoa> filaPessoas = new Fila<>();
+        System.out.println(filaPessoas.estaVazia());
+        filaPessoas.enfileirar(new Pessoa(1, "Rafael"));
+        filaPessoas.enfileirar(new Pessoa(2, "Kauanny"));
+        filaPessoas.enfileirar(new Pessoa(3, "William"));
+        System.out.println(filaPessoas.desenfileirar().toString());
+    }
+
 }
