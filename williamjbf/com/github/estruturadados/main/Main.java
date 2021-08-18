@@ -1,5 +1,6 @@
 package williamjbf.com.github.estruturadados.main;
 
+import williamjbf.com.github.estruturadados.conjunto.Conjunto;
 import williamjbf.com.github.estruturadados.filas.Fila;
 import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
 import williamjbf.com.github.estruturadados.listasligadas.ListaLigada;
@@ -22,6 +23,7 @@ public class Main {
         System.out.println("4- Lista duplamente ligada");
         System.out.println("5- Pilhas");
         System.out.println("6- Filas");
+        System.out.println("7- Conjuntos");
 
         try {
             opcao = scan.nextInt();
@@ -36,6 +38,7 @@ public class Main {
             case 4 -> fazerListaDuplamenteLigada();
             case 5 -> fazerPilha();
             case 6 -> fazerFila();
+            case 7 -> fazerConjunto();
         }
 
         scan.close();
@@ -152,4 +155,18 @@ public class Main {
         System.out.println(filaPessoas.desenfileirar().toString());
     }
 
+    public static void fazerConjunto(){
+        Conjunto<Pessoa> conjuntoPessoas = new Conjunto<>();
+        System.out.println(conjuntoPessoas.estaVazio());
+        Pessoa pessoa = new Pessoa(1, "Rafael");
+        System.out.println(conjuntoPessoas.inserir(pessoa));
+        System.out.println(conjuntoPessoas.inserir(pessoa));
+        conjuntoPessoas.inserir(new Pessoa(3, "William"));
+        conjuntoPessoas.inserirEm(1,new Pessoa(2, "Kauanny"));
+        System.out.println(conjuntoPessoas);
+        conjuntoPessoas.remover(pessoa);
+        System.out.println(conjuntoPessoas);
+        System.out.println(conjuntoPessoas.inserir(pessoa));
+        System.out.println(conjuntoPessoas);
+    }
 }
