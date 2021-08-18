@@ -162,7 +162,6 @@ public class Main {
         System.out.println(conjuntoPessoas.inserir(pessoa));
         System.out.println(conjuntoPessoas.inserir(pessoa));
         conjuntoPessoas.inserir(new Pessoa(3, "William"));
-        conjuntoPessoas.inserirEm(1,new Pessoa(2, "Kauanny"));
         System.out.println(conjuntoPessoas);
         conjuntoPessoas.remover(pessoa);
         System.out.println(conjuntoPessoas);
