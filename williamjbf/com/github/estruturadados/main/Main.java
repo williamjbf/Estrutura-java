@@ -4,6 +4,7 @@ import williamjbf.com.github.estruturadados.conjunto.Conjunto;
 import williamjbf.com.github.estruturadados.filas.Fila;
 import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
 import williamjbf.com.github.estruturadados.listasligadas.ListaLigada;
+import williamjbf.com.github.estruturadados.mapas.Mapa;
 import williamjbf.com.github.estruturadados.modelos.Pessoa;
 import williamjbf.com.github.estruturadados.pilhas.Pilha;
 import williamjbf.com.github.estruturadados.vetores.Vetor;
@@ -24,6 +25,7 @@ public class Main {
         System.out.println("5- Pilhas");
         System.out.println("6- Filas");
         System.out.println("7- Conjuntos");
+        System.out.println("8- Mapas");
 
         try {
             opcao = scan.nextInt();
@@ -39,6 +41,7 @@ public class Main {
             case 5 -> fazerPilha();
             case 6 -> fazerFila();
             case 7 -> fazerConjunto();
+            case 8 -> fazerMapa();
         }
 
         scan.close();
@@ -167,5 +170,20 @@ public class Main {
         System.out.println(conjuntoPessoas);
         System.out.println(conjuntoPessoas.inserir(pessoa));
         System.out.println(conjuntoPessoas);
+    }
+
+    public static void fazerMapa(){
+        Mapa<String, Pessoa> mapaPessoas = new Mapa<>();
+        System.out.println(mapaPessoas);
+        mapaPessoas.adicionar("legal",new Pessoa(1,"Rafael"));
+        mapaPessoas.adicionar("Nhe",new Pessoa(3,"William"));
+        System.out.println(mapaPessoas.toString());
+        mapaPessoas.adicionar("legal",new Pessoa(2,"Kauanny"));
+        mapaPessoas.adicionar("Nhe",new Pessoa(4,"Kelly"));
+        System.out.println(mapaPessoas.contemChave("legal"));
+        System.out.println(mapaPessoas.contemChave("Nhe"));
+        mapaPessoas.remover("Nhe");
+        System.out.println(mapaPessoas.recuperar("legal"));
+        System.out.println(mapaPessoas.recuperar("Nhe"));
     }
 }
