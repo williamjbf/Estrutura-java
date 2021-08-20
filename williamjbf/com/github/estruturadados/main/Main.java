@@ -1,5 +1,8 @@
 package williamjbf.com.github.estruturadados.main;
 
+import williamjbf.com.github.estruturadados.arvorebinaria.Arvore;
+import williamjbf.com.github.estruturadados.arvorebinaria.NoArvore;
+import williamjbf.com.github.estruturadados.arvorebinaria.NoArvorePessoa;
 import williamjbf.com.github.estruturadados.conjunto.Conjunto;
 import williamjbf.com.github.estruturadados.filas.Fila;
 import williamjbf.com.github.estruturadados.listasligadas.ListaDuplamenteLigada;
@@ -26,6 +29,7 @@ public class Main {
         System.out.println("6- Filas");
         System.out.println("7- Conjuntos");
         System.out.println("8- Mapas");
+        System.out.println("9- Na arvore binaria");
 
         try {
             opcao = scan.nextInt();
@@ -42,6 +46,7 @@ public class Main {
             case 6 -> fazerFila();
             case 7 -> fazerConjunto();
             case 8 -> fazerMapa();
+            case 9 -> fazerArvoreBinaria();
         }
 
         scan.close();
@@ -177,7 +182,7 @@ public class Main {
         System.out.println(mapaPessoas);
         mapaPessoas.adicionar("legal",new Pessoa(1,"Rafael"));
         mapaPessoas.adicionar("Nhe",new Pessoa(3,"William"));
-        System.out.println(mapaPessoas.toString());
+        System.out.println(mapaPessoas);
         mapaPessoas.adicionar("legal",new Pessoa(2,"Kauanny"));
         mapaPessoas.adicionar("Nhe",new Pessoa(4,"Kelly"));
         System.out.println(mapaPessoas.contemChave("legal"));
@@ -186,4 +191,34 @@ public class Main {
         System.out.println(mapaPessoas.recuperar("legal"));
         System.out.println(mapaPessoas.recuperar("Nhe"));
     }
+
+    public static void fazerArvoreBinaria(){
+        Arvore<Pessoa> arvorePessoas = new Arvore<>();
+        System.out.println(arvorePessoas);
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(5,"Kelly")));
+        System.out.println(arvorePessoas);
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4,"Rafael")));
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6,"Kauanny")));
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7,"Will")));
+        System.out.println(arvorePessoas);
+        NoArvore<Pessoa> pessoa1 = new NoArvorePessoa(new Pessoa(8,"Milany"));
+        NoArvore<Pessoa> pessoa2 = new NoArvorePessoa(new Pessoa(1,"Jeff"));
+        arvorePessoas.inserir(pessoa1);
+        arvorePessoas.inserir(pessoa2);
+        System.out.println(arvorePessoas.buscar(pessoa1));
+        System.out.println(arvorePessoas.buscar(pessoa2));
+
+        System.out.println("****** Ordem ******");
+        arvorePessoas.emOrdem();
+
+        System.out.println("****** Pre ordem ******");
+        arvorePessoas.preOrdem();
+
+        System.out.println("****** Pos ordem ******");
+        arvorePessoas.posOrdem();
+
+        System.out.println("****** Altura ******");
+        System.out.println(arvorePessoas.altura());
+    }
+
 }
